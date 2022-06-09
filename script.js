@@ -22,7 +22,7 @@ async function getBooks() {
     console.log(data.docs)
 
 
-    
+
 
 
 
@@ -31,9 +31,6 @@ async function getBooks() {
 }
 getBooks() 
 .catch(err => console.log(err))
-
-
-
 
 
 

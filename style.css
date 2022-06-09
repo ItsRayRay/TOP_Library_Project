@@ -151,84 +151,60 @@ form button:hover {
 
 /* =============Card=============== */
 
-
+.cards {
+    margin: 0 auto;
+    max-width: 1000px;
+    padding-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
+    gap: 20px;
+    font-family: sans-serif;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
 
 .card {
-    max-width: 80%;
-    border-bottom: rgb(150, 147, 147) 1px solid;
-    display: flex;
-    padding-top: 30px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
 }
 
 
-.title {
-    color: rgb(0, 0, 0);
-    font-family: 'Roboto', sans-serif;
-    font-weight: 700;
-    font-size: 1.2em;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 10px;
+
+.card__title {
+    color: black;
 }
 
-.rating {
-    color: rgb(0, 0, 0);
-    font-family: 'Roboto', sans-serif;
-    font-weight: 500;
-    font-size: 1em;
-    margin-left: 0px;
-    margin-right: 0px;
-    padding-left: 5px;
-}
 
-.star {
-    margin: 0px;
-    padding-left: 10px;
-}
- 
-.movie__info {
-    display: flex;
-    padding: 10px;
-    padding: 10px;
-    color: #000000;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 200;
-    font-size: 1em;
-}
-
-.watchlist__icon {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 0px;
-    cursor: pointer;
-
-}
-
-.movie__description {
-    padding: 10px;
-    color: #4e4e4e;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 200;
-    font-size: 1em;
-}
-
-span {
-    margin: 0px;
-    padding-right: 10px;
-}
-
-.plusicon {
+.card__image {
+    width: 100%;
     display: block;
-    padding-right: 3px;
 }
 
-.movie__poster{
-    max-width: 140px;
+.card__content {
+    line-height: 1.5;
+    font-size: 0.9em;
+    padding: 15px;
+    background-color: #fafafa ;
+
 }
 
+.card__content > p:first-of-type {
+    margin-top: 0;
+}
+
+.card__content > p:last-of-type {
+    margin-bottom: 0;
+}
+
+.card__info {
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #eeeeee;
+    font-size: 0.8em;
+    border-bottom: 2px solid #cccccccc;
+    align-items: center;
+}
 
 /* =============MediaQuery=============== */
 
