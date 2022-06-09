@@ -3,14 +3,15 @@ const searchButton = document.querySelector("#search__btn")
 searchButton.addEventListener("click", function(e) { 
      //search button
     e.preventDefault()
- 
+    const cardLayout = document.querySelector(".cards")
+    cardLayout.innerHTML = `<div class="loadingcontainer"><h1 class="loading">Loading... </h1><div class="spinner"></div> </div>`
     let searchInput = document.querySelector("input").value  // get the value of the input
 
 async function getBooks() {
     const response = await fetch ("http://openlibrary.org/search.json?q="+searchInput)
     const data = await response.json()
 
-const cardLayout = document.querySelector(".cards")
+
 
 cardLayout.innerHTML = ``
 
@@ -33,6 +34,3 @@ cardLayout.innerHTML += `    <div class="card">
 getBooks() 
 .catch(err => console.log(err))
 })
-
-
-

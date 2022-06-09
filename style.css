@@ -224,7 +224,44 @@ form button:hover {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        
     }
 
+        .loadingcontainer {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            height: 70vh;
+        }
+    }
+
+
+
+    .spinner {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 6.4px solid;
+        border-color: #dbdcef;
+        border-right-color: #363636;
+        animation: spinner-d3wgkg 1.4s infinite linear;
+     }
+     
+     @keyframes spinner-d3wgkg {
+        to {
+           transform: rotate(1turn);
+        }
+     }
+.loading{
+    color: black;
+    padding-right: 15px;
+}
+
+.loadingcontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    position: relative;
+    right: -325px;
 }
