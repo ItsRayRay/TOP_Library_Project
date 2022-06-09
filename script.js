@@ -25,8 +25,7 @@ cardLayout.innerHTML += `    <div class="card">
     <div>Pages: ${data.docs[i].number_of_pages_median}</div>
 </div>
 <div class="card__info">
-    <div>+ Add to Readlist</div>
-    <div>More info: ${data.docs[i].number_of_pages_median}</div>
+    <div class="add__readlist">+ Add to Readlist</div>
 </div>
 </div>`
 }

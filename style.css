@@ -147,7 +147,15 @@ form button:hover {
 }
 
 
+.add__readlist:hover {
+    color: #8b8b8b;
+    cursor: pointer;
+}
 
+
+.add__readlist {
+    cursor: pointer;
+}
 
 /* =============Card=============== */
 
