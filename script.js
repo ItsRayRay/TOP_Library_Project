@@ -8,11 +8,8 @@ searchButton.addEventListener("click", function(e) {
     e.preventDefault()
  
     let searchInput = document.querySelector("input").value  // get the value of the input
-    
-//    document.querySelector("main").innerHTML = "";
- //   fetch ("http://openlibrary.org/search.json?q="+searchInput)
- //   .then (res => res.json())
- //   .then (data => {  console.log(data) } )
+
+
 
 
 async function getBooks() {
@@ -20,6 +17,34 @@ async function getBooks() {
     const data = await response.json()
 
     console.log(data.docs)
+
+
+const cardLayout = document.querySelector(".cards")
+
+
+cardLayout.innerHTML = ``
+
+
+
+for (let i = 0; i < 10 ; i++) {
+
+
+cardLayout.innerHTML += `    <div class="card">
+<img src="http://covers.openlibary.org/b/isbn/`+data.docs[i].isbn[0]+`-M.jpg" alt="" class="card__image">
+<div class="card__content">
+    <h3 class="card__title">${data.docs[i].title_suggest}</h3>
+    <p class="card__text">Author: ${data.docs[i].author_name}</p>
+</div>
+<div class="card__info">
+    <div>+ Add to Readlist</div>
+    <div>Pages: ${data.docs[i].number_of_pages_median}</div>
+</div>
+</div>`
+
+
+
+}
+
 
 
 
