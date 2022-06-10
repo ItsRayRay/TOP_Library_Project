@@ -36,6 +36,8 @@ searchButton.addEventListener("click", function (e) {
 </div>`;
 
 
+
+
 // saves book in object that will be pushed into the array of savedBooksArr
 
       savedBookObj = {
@@ -53,7 +55,9 @@ searchButton.addEventListener("click", function (e) {
 
 
 
-function addReadlist(cardItemNumber, title) {
+function addReadlist(cardItemNumber) {
   let savedBookSerialized = JSON.stringify (SavedBooksArr[cardItemNumber]);
-  localStorage.setItem(title, savedBookSerialized);
+  localStorage.setItem(SavedBooksArr[cardItemNumber].title, savedBookSerialized);
 }
+
+
