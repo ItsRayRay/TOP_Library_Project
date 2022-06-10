@@ -77,41 +77,7 @@ main {
   border-bottom-right-radius: 10px;
 }
 
-form {
-  background: #fff;
-  border: solid 1px #4b4b4b;
-  width: 60%;
-  max-width: 450px;
-  height: 38px;
-  display: flex;
-  border-radius: 10px;
-  position: relative;
-  top: -600px;
-}
 
-form input {
-  flex: 1;
-  border: none;
-  outline: none;
-}
-
-form button {
-  background: #4b4b4b;
-  padding: 10px 10px;
-  border: solid #4b4b4b 1px;
-  outline: none;
-  color: #fff;
-  letter-spacing: 1px;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-  cursor: pointer;
-}
-
-form button:hover {
-  background: #5f5f5f;
-  color: #ffffff;
-  cursor: pointer;
-}
 
 #watchlist__btn:hover {
   color: #8b8b8b;
@@ -139,17 +105,8 @@ form button:hover {
   align-items: center;
   justify-content: center;
   border-bottom: none;
-  -moz-outline-style: none;
 }
 
-.add__readlist:hover {
-  color: #8b8b8b;
-  cursor: pointer;
-}
-
-.add__readlist {
-  cursor: pointer;
-}
 
 /* =============Card=============== */
 
@@ -216,18 +173,52 @@ form button:hover {
 }
 
 
-.spinner {
-   width: 56px;
-   height: 56px;
-   border-radius: 50%;
-   border: 9px solid;
-   border-color: #dbdcef;
-   border-right-color: #3f3f49;
-   animation: spinner-d3wgkg 1s infinite linear;
+
+.modal__title {
+  color: black;
 }
 
-@keyframes spinner-d3wgkg {
-   to {
-      transform: rotate(1turn);
-   }
+
+.button{
+  background-color:coral ;
+  padding: 1em 2em;
+  color: white;
+  border: none;
+}
+
+.button:hover{
+  background-color: #4B4B4B;
+  cursor: pointer;
+}
+
+.modal {
+  display: none; 
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0,0.5)
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 20% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 70%;
+}   
+
+.close {
+  color: #ccc;
+  float: right;
+  font-size:30px;
+}
+
+.close:hover,.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
