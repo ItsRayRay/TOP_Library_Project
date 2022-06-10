@@ -180,10 +180,14 @@ main {
 
 
 .button{
-  background-color:coral ;
+  background-color:rgb(112, 102, 99) ;
   padding: 1em 2em;
   color: white;
   border: none;
+  font-family: "Roboto", sans-serif;
+  text-decoration: none;
+  font-size: 1em;
+  border-radius: 5px;
 }
 
 .button:hover{

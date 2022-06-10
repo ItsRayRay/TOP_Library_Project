@@ -26,6 +26,7 @@
         font-family: 'Roboto', sans-serif;
         font-weight: 900;
         font-size: 1.8em;
+        align-items: center;
     }
 
     h3 {
@@ -54,13 +55,14 @@
     margin-top: 50px;
 }
 
+
 header {
     min-width: 100%;
     min-height: 200px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     background-color: #070714;
@@ -265,3 +267,16 @@ form button:hover {
     position: relative;
     right: -325px;
 }
+
+.button{
+    background-color:rgb(112, 102, 99) ;
+    padding: 1em 2em;
+    color: white;
+    border: none;
+    font-family: "Roboto", sans-serif;
+    text-decoration: none;
+    font-size: 1em;
+    border-radius: 5px;
+    position: relative;
+    top: -20px;
+  }
