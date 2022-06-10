@@ -63,5 +63,3 @@ function addReadlist(cardItemNumber) {
   let savedBookSerialized = JSON.stringify (SavedBooksArr[cardItemNumber]);
   localStorage.setItem(SavedBooksArr[cardItemNumber].isbn, savedBookSerialized);
 }
-
-
