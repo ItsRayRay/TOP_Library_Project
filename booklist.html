@@ -29,29 +29,51 @@
 
 </header>
 
+
 <main>  
-    <div id="modal" class="modal">
-        <div class="modal-content">
-         
-            <h3 class="modal__title">Add a book</h3>
-            <form action="booklist.html" method="post">
-
-                <input type="text" name="title" id="title" placeholder="Title">
-
-                <input type="text" name="author" id="author" placeholder="Author">
-
-                <input type="text" name="genre" id="genre" placeholder="Genre">
-
-                <input type="text" name="review" id="review" placeholder="Pages">
-                <input type="submit" value="Submit">
-            </form>
-            <span class="close">&times;</span>
-        </div>
-
+ 
 <div class="cards">
+    <div class="card">
+        <img src="" alt="" class="card__image">
+        <div class="card__content">
+            <h3 class="card__title">
+
+                Harry Potter and the Chamber of Secrets</h3>
+            <p class="card__text">Author: J. K. Rowling</p>
+            <p class="card__text">Genre:  Fantasy fiction</p>
+            <div>Pages:  341</div>
+            <div class="on__page">On page:200</div>
+           
+        </div>
+        <div class="page__number"><form action=""><input id="pagenumbervalue" placeholder= "Pagenumber "type="text"></form></div>
+       
+
+        <div class="card__info">
+            <div id="readBtn">Read</div> <div id="deleteBtn">Delete</div> 
+        </div>
+        </div>
 
 
 </div>
+
+
+<div id="modal" class="modal">
+    <div class="modal-content">
+     
+        <h3 class="modal__title">Add a book</h3>
+        <form action="booklist.html" method="post">
+
+            <input type="text" name="title" id="title" placeholder="Title">
+
+            <input type="text" name="author" id="author" placeholder="Author">
+
+            <input type="text" name="genre" id="genre" placeholder="Genre">
+
+            <input type="text" name="review" id="review" placeholder="Pages">
+            <input type="submit" value="Submit">
+        </form>
+        <span class="close">&times;</span>
+    </div>
 
 
 

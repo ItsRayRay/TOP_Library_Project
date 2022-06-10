@@ -258,3 +258,16 @@ input {
     opacity: 1;
   }
 }
+
+.page__number {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+}
+
+.on__page {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  
+}
