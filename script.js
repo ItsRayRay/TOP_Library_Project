@@ -1,23 +1,28 @@
-const searchButton = document.querySelector("#search__btn")
+const searchButton = document.querySelector("#search__btn");
+let SavedBooksArr = [];
 
-searchButton.addEventListener("click", function(e) { 
-     //search button
-    e.preventDefault()
-    const cardLayout = document.querySelector(".cards")
-    cardLayout.innerHTML = `<div class="loadingcontainer"><h1 class="loading">Loading... </h1><div class="spinner"></div> </div>`
-    let searchInput = document.querySelector("input").value  // get the value of the input
+searchButton.addEventListener("click", function (e) {
+  //search button
+  e.preventDefault();
 
-async function getBooks() {
-    const response = await fetch ("http://openlibrary.org/search.json?q="+searchInput)
-    const data = await response.json()
+  const cardLayout = document.querySelector(".cards");
 
+  //change innerHTML of cardLayout
+  cardLayout.innerHTML = `<div class="loadingcontainer"><h1 class="loading">Loading... </h1><div class="spinner"></div> </div>`;
+  let searchInput = document.querySelector("input").value; // get the value of the input
 
+  //fetch the data from the API
+  async function getBooks() {
+    const response = await fetch(
+      "http://openlibrary.org/search.json?q=" + searchInput
+    );
+    const data = await response.json();
+    
+    cardLayout.innerHTML = ``;
 
-cardLayout.innerHTML = ``
-
-for (let i = 0; i < 50 ; i++) {
-
-cardLayout.innerHTML += `    <div class="card">
+    //loop through the data and create cards
+    for (let i = 0; i < 50; i++) {
+      cardLayout.innerHTML += `    <div class="card">
 <img src="" alt="" class="card__image">
 <div class="card__content">
     <h3 class="card__title">${data.docs[i].title_suggest}</h3>
@@ -26,11 +31,29 @@ cardLayout.innerHTML += `    <div class="card">
     <div>Pages: ${data.docs[i].number_of_pages_median}</div>
 </div>
 <div class="card__info">
-    <div class="add__readlist">+ Add to Readlist</div>
+    <div onclick="addReadlist(${i})" class="add__readlist">+ Add to Readlist</div>
 </div>
-</div>`
+</div>`;
+
+
+// saves book in object that will be pushed into the array of savedBooksArr
+
+      savedBookObj = {
+        title: data.docs[i].title_suggest,
+        Author: data.docs[i].author_name,
+        Genre: data.docs[i].subject[0],
+        Pages: data.docs[i].number_of_pages_median,
+      };
+
+        SavedBooksArr.push(savedBookObj);
+    }
+  }
+  getBooks().catch((err) => console.log(err));
+});
+
+
+
+function addReadlist(cardItemNumber, title) {
+  let savedBookSerialized = JSON.stringify (SavedBooksArr[cardItemNumber]);
+  localStorage.setItem(title, savedBookSerialized);
 }
-}
-getBooks() 
-.catch(err => console.log(err))
-})
