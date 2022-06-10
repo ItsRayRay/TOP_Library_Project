@@ -16,6 +16,8 @@ searchButton.addEventListener("click", function (e) {
     const response = await fetch(
       "http://openlibrary.org/search.json?q=" + searchInput
     );
+
+    
     const data = await response.json();
     
     cardLayout.innerHTML = ``;
@@ -36,7 +38,7 @@ searchButton.addEventListener("click", function (e) {
 </div>`;
 
 
-
+console.log(data.docs)
 
 // saves book in object that will be pushed into the array of savedBooksArr
 
@@ -45,6 +47,8 @@ searchButton.addEventListener("click", function (e) {
         Author: data.docs[i].author_name,
         Genre: data.docs[i].subject[0],
         Pages: data.docs[i].number_of_pages_median,
+        isbn: data.docs[i].isbn[0],
+        onpage: 00
       };
 
         SavedBooksArr.push(savedBookObj);
@@ -53,11 +57,11 @@ searchButton.addEventListener("click", function (e) {
   getBooks().catch((err) => console.log(err));
 });
 
-
+//add to localstorage and set key to ISBN number
 
 function addReadlist(cardItemNumber) {
   let savedBookSerialized = JSON.stringify (SavedBooksArr[cardItemNumber]);
-  localStorage.setItem(SavedBooksArr[cardItemNumber].title, savedBookSerialized);
+  localStorage.setItem(SavedBooksArr[cardItemNumber].isbn, savedBookSerialized);
 }
 
 

@@ -2,6 +2,9 @@ const modal = document.getElementById("modal")
 const modalBtn = document.getElementById("modalBtn")
 const closeBtn = document.querySelector(".close")
 const cardList = document.querySelector(".cards")  
+let inputValue = document.querySelector("#pagenumbervalue")
+let savedBooksArr = []
+
 
 
 
@@ -17,19 +20,26 @@ function closeModal() {
 }
 
 
+
 for (let i = 0; i < localStorage.length; i++) {
 
-let savedBooks = JSON.parse(localStorage.getItem(localStorage.key(i)));
+    let savedBooks = JSON.parse(localStorage.getItem(localStorage.key(i)));
 
 
-cardList.innerHTML +=  `   <div class="card">
+    savedBooksArr.push(savedBooks);
+
+}
+
+
+for (let i = 0; i < savedBooksArr.length; i++) {
+    cardList.innerHTML +=  `   <div class="card">
 <img src="" alt="" class="card__image">
 <div class="card__content">
-    <h3 class="card__title">${savedBooks.title} </h3>
-    <p class="card__text">${savedBooks.Author} </p>
-    <p class="card__text">Genre:  ${savedBooks.Genre}</p>
-    <div>Pages:  ${savedBooks.Pages}</div>
-    <div class="on__page">On page: 0</div>
+    <h3 class="card__title">${savedBooksArr[i].title} </h3>
+    <p class="card__text">${savedBooksArr[i].Author} </p>
+    <p class="card__text">Genre:  ${savedBooksArr[i].Genre}</p>
+    <div>Pages:  ${savedBooksArr[i].Pages}</div>
+    <div class="on__page">On page: ${savedBooksArr[i].onpage}</div>
    
 </div>
 <div class="page__number"><form action=""><input id="pagenumbervalue" placeholder= "Pagenumber "type="text"></form></div>
@@ -38,8 +48,9 @@ cardList.innerHTML +=  `   <div class="card">
 <div class="card__info">
     <div id="readBtn">Read</div> <div id="deleteBtn">Delete</div> 
 </div>
-</div>
+</div>`
 
-`
-
+;
 }
+
+
