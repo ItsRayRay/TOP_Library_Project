@@ -38,25 +38,32 @@ for (let i = 0; i < arrayOfKeysToNumber.length; i++) {
   cardList.innerHTML +=  `   <div class="card">
 <img src="" alt="" class="card__image">
 <div class="card__content">
- <h3 class="card__title">test </h3>
-    <p class="card__text">test</p>
-    <p class="card__text">Genre:  test</p>
-   <div>Pages:  test</div>
+ <h3 class="card__title">${ SavedBooksArr[i].title} </h3>
+    <p class="card__text">${ SavedBooksArr[i].Author}</p>
+    <p class="card__text">Genre:  ${SavedBooksArr[i].Genre}</p>
+   <div>Pages:   ${SavedBooksArr[i].Pages}</div>
  
-   
 </div>
 
 <div class="card__info">
- <div onclick="readBook()" id="readBtn">Read</div> <div onclick="deleteBook()":  id="deleteBtn">Delete</div> 
+ <div onclick="deleteBook(${SavedBooksArr[i].isbn})":  id="deleteBtn">Delete</div> 
 </div>
 </div>
 `
 
+}
 
 
+function deleteBook(isbn) {
+  localStorage.removeItem(isbn)
+  location.reload()
 }
 
 
 
+function readBook(isbn) {
+  localStorage.removeItem(isbn)
+  location.reload()
+}
 
 
