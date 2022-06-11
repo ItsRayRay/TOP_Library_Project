@@ -1,5 +1,6 @@
 const searchButton = document.querySelector("#search__btn");
 let SavedBooksArr = [];
+let addToReadList = []
 
 searchButton.addEventListener("click", function (e) {
   //search button
@@ -19,11 +20,12 @@ searchButton.addEventListener("click", function (e) {
 
     
     const data = await response.json();
-    
+
+  
     cardLayout.innerHTML = ``;
 
     //loop through the data and create cards
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < 20 ; i++) {
       cardLayout.innerHTML += `    <div class="card">
 <img src="" alt="" class="card__image">
 <div class="card__content">
@@ -33,14 +35,10 @@ searchButton.addEventListener("click", function (e) {
     <div>Pages: ${data.docs[i].number_of_pages_median}</div>
 </div>
 <div class="card__info">
-    <div onclick="addReadlist(${i})" class="add__readlist">+ Add to Readlist</div>
+    <div onclick="addReadlist(${data.docs[i].isbn[0]})" class="add__readlist">+ Add to Readlist</div>
 </div>
 </div>`;
 
-
-console.log(data.docs)
-
-// saves book in object that will be pushed into the array of savedBooksArr
 
       savedBookObj = {
         title: data.docs[i].title_suggest,
@@ -51,15 +49,41 @@ console.log(data.docs)
       };
 
         SavedBooksArr.push(savedBookObj);
+
     }
+
+
+
   }
   getBooks().catch((err) => console.log(err));
 });
 
-//add to localstorage and set key to ISBN number
+//add to readlist
+function addReadlist(isbn) {
+// change ISBN Number to String
+  let isbnTostring = isbn.toString();
 
 
-function addReadlist(cardItemNumber) {
-  let savedBookSerialized = JSON.stringify (SavedBooksArr[cardItemNumber]);
-  localStorage.setItem(SavedBooksArr[cardItemNumber].isbn, savedBookSerialized);
+// finds the specific book that has been pressed to add to readlist by matching the ISBN number with button Number 
+ const findBook = function (myBook, title) {
+    const index = myBook.findIndex(function(item, index  ) {
+      return item.isbn === isbnTostring;
+    })
+    return myBook[index];
+ }
+ // result from the function above
+let pickedBook = findBook(SavedBooksArr, isbnTostring);
+
+
+console.log(pickedBook)
+// pushes the book to the addToReadList array
+
+
+let savedBookSerialized = JSON.stringify (pickedBook);
+localStorage.setItem(isbn, savedBookSerialized);
 }
+
+
+//sources
+
+//https://www.youtube.com/watch?v=US63Q6AL0GI
