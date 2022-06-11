@@ -5,27 +5,30 @@ const cardList = document.querySelector(".cards")
 const submitBtn = document.querySelector("#submitBtn")
 const SavedBooksArr = []
 
-const titleInput = document.querySelector("#title")
-const authorInput = document.querySelector("#author")
-const genreInput = document.querySelector("#genre")
-const pagesInput = document.querySelector("#pages")
 
-function submitForm() {
+submitBtn.addEventListener("click", function(e) {
   e.preventDefault()
   
+  let titleInput = document.querySelector("#title")
+  let authorInput = document.querySelector("#author")
+  let genreInput = document.querySelector("#genre")
+  let pagesInput = document.querySelector("#pages")
+
+
+
   let newBook = {
     title: titleInput.value,
     Author: authorInput.value,
     Genre: genreInput.value,
     Pages: pagesInput.value,
-    isbn: Math.floor(Math.random() * 10000000000000000),
-  
+    isbn: Math.floor(Math.random() * 1000000000000),
   }
 
  
- SavedBooksArr.push(newBook)
+  localStorage.setItem(newBook.isbn, JSON.stringify(newBook))
+  window.location.reload()
   
-}
+ } )
 
 
 modalBtn.addEventListener("click", openModal);
