@@ -48,7 +48,6 @@ console.log(data.docs)
         Genre: data.docs[i].subject[0],
         Pages: data.docs[i].number_of_pages_median,
         isbn: data.docs[i].isbn[0],
-        onpage: 00
       };
 
         SavedBooksArr.push(savedBookObj);
@@ -58,6 +57,7 @@ console.log(data.docs)
 });
 
 //add to localstorage and set key to ISBN number
+
 
 function addReadlist(cardItemNumber) {
   let savedBookSerialized = JSON.stringify (SavedBooksArr[cardItemNumber]);

@@ -52,8 +52,3 @@ function deleteBook (isbnKey) {
 
 }
 
-function readBook (isbnKey) {
-    
-    localStorage.setItem(isbnKey, true) 
-    location.reload()
-}
