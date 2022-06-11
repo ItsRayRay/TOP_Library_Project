@@ -2,7 +2,30 @@ const modal = document.getElementById("modal")
 const modalBtn = document.getElementById("modalBtn")
 const closeBtn = document.querySelector(".close")
 const cardList = document.querySelector(".cards")  
-SavedBooksArr = []
+const submitBtn = document.querySelector("#submitBtn")
+const SavedBooksArr = []
+
+const titleInput = document.querySelector("#title")
+const authorInput = document.querySelector("#author")
+const genreInput = document.querySelector("#genre")
+const pagesInput = document.querySelector("#pages")
+
+function submitForm() {
+  e.preventDefault()
+  
+  let newBook = {
+    title: titleInput.value,
+    Author: authorInput.value,
+    Genre: genreInput.value,
+    Pages: pagesInput.value,
+    isbn: Math.floor(Math.random() * 10000000000000000),
+  
+  }
+
+ 
+ SavedBooksArr.push(newBook)
+  
+}
 
 
 modalBtn.addEventListener("click", openModal);
@@ -55,13 +78,6 @@ for (let i = 0; i < arrayOfKeysToNumber.length; i++) {
 
 
 function deleteBook(isbn) {
-  localStorage.removeItem(isbn)
-  location.reload()
-}
-
-
-
-function readBook(isbn) {
   localStorage.removeItem(isbn)
   location.reload()
 }
