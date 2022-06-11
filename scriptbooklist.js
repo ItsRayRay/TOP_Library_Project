@@ -16,7 +16,6 @@ function closeModal() {
     modal.style.display = "none";
 }
 
-
 //const items = { ...localStorage }; // get the items from localStorage
 
 // get all keys from index and store it in an array
@@ -29,41 +28,35 @@ for (let key of keys) {
 let arrayOfKeysToNumber = keys.map(Number)
 console.log(arrayOfKeysToNumber)
 
-for ( let i = 0; i < arrayOfKeysToNumber.length; i++) { 
-    let savedBooks = JSON.parse(localStorage.getItem(arrayOfKeysToNumber[i]));
-
-    SavedBooksArr.push(savedBooks);
-   
-}
-console.log(SavedBooksArr)
 
 
+for (let i = 0; i < arrayOfKeysToNumber.length; i++) {
+  const localStorageItem = JSON.parse(localStorage.getItem(arrayOfKeysToNumber[i]))
 
-//for (let i = 0; i < localStorage.length; i++) {
+  SavedBooksArr.push(localStorageItem)
 
-//let savedBooks = JSON.parse(localStorage.getItem(localStorage.length));
-
-
-
-//cardList.innerHTML +=  `   <div class="card">
-//<img src="" alt="" class="card__image">
-//<div class="card__content">
-  //  <h3 class="card__title">${savedBooks.title} </h3>
-    //<p class="card__text">${savedBooks.Author} </p>
-   // <p class="card__text">Genre:  ${savedBooks.Genre}</p>
-   // <div>Pages:  ${savedBooks.Pages}</div>
+  cardList.innerHTML +=  `   <div class="card">
+<img src="" alt="" class="card__image">
+<div class="card__content">
+ <h3 class="card__title">test </h3>
+    <p class="card__text">test</p>
+    <p class="card__text">Genre:  test</p>
+   <div>Pages:  test</div>
  
    
-//</div>
+</div>
 
-//<div class="card__info">
-  //  <div onclick="readBook(${savedBooks.isbn} id="readBtn">Read</div> <div onclick="deleteBook(${savedBooks.isbn})":  id="deleteBtn">Delete</div> 
-//</div>
-//</div>
-//`
+<div class="card__info">
+ <div onclick="readBook()" id="readBtn">Read</div> <div onclick="deleteBook()":  id="deleteBtn">Delete</div> 
+</div>
+</div>
+`
 
 
-//}
+
+}
+
+
 
 
 

@@ -25,7 +25,7 @@ searchButton.addEventListener("click", function (e) {
     cardLayout.innerHTML = ``;
 
     //loop through the data and create cards
-    for (let i = 0; i < 20 ; i++) {
+    for (let i = 0; i < 2 ; i++) {
       cardLayout.innerHTML += `    <div class="card">
 <img src="" alt="" class="card__image">
 <div class="card__content">
