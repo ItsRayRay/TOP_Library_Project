@@ -7,7 +7,3 @@ To achieve this, I had to use an API to fetch data on books, and then store the 
 with a search bar for finding books and a display area for showing book details.
 
 Overall, this project helped me to further develop my skills in API calls and local storage management.
-
-Feel free to check out the book library and try it out for yourself!
-
-https://itsrayray.github.io/TOP_Library_Project/index.html
